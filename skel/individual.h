@@ -3,10 +3,12 @@
 
 // structure for an individual in the genetic algorithm; the chromosomes are an array corresponding to each sack
 // object, in order, where 1 means that the object is in the sack, 0 that it is not
-typedef struct _individual {
+typedef struct _individual
+{
+	int updated_chromosomes;
 	int fitness;
 	int *chromosomes;
-    int chromosome_length;
+	int chromosome_length;
 	int index;
 } individual;
 
