@@ -1,0 +1,18 @@
+# Caplan Robert Stefan, 336CB
+# Tema 1 - APD
+
+    Pentru a nu folosi variabile globale, am facut structura args_struct pentru a 
+putea transmite ca si parametrii variabilele de care am nevoie in functia care 
+va rula pe fiecare thread.
+
+    Am paralelizat functia care calculeaza fitness-ul, selectarea elitei, mutate-urile
+pentru primii si urmatorii 20% de indivizi, si update-ul indexului. Pentru a sincroniza
+thread-urile, am folosit bariere dupa fiecare rulare secventa de cod care ruleaza in paralel.
+
+    Printarea, sortarea, switch-ul la urmatoarea generatie si crossover-ul le-am rulat pe un singur
+thread (primul) pentru a nu incetini rularea.
+
+    De asemenea, pentru a avea o implementare mai eficienta, am mutat numararea obiectelor individului
+din functia de compare in functia de fitness. Astfel, nu se mai parcurge la fiecare comparatie tot sirul
+de cromozomi pentru a numara cate obiecte se afla, ci salvam intr-un camp din structura si facem asta 
+o singura data in functia de fitness.
