@@ -1,0 +1,19 @@
+# Caplan Robert Stefan, 336CB
+# Tema 3 - APD
+
+    Initial, fiecare coordonator citeste din fisier pentru a afla cine sunt workerii lui. Pentru
+fiecare worker, ii trimit un mesaj cu rank-ul pentru a-l anunta cine ii este coordonator. In functie
+de coordonatorul pe care ma aflu, trimit sau primesc informatii de la ceilalti coordonatori pentru
+a se anunta fiecare ce workeri au. Dupa ce coordonatorii stiu fiecare de fiecare, anunt si toti
+workerii fiecarui coordonator. Astfel toti o sa cunoasca topologia. Printez cate un log pentru
+fiecare send pe care il fac si topologia imediat cum este aflata de un coordonator sau worker.
+    
+    Pentru a rezolva task-ul 2, generez in procesul 0 vectorul de elemente, dupa care calculez
+cat sa trimit fiecarui coordonator respectiv worker. Impart vectorul la numarul de workeri pentru
+a vedea cat sa rezolve fiecare, dupa care trimit coordonatorilor in functie de cati workeri au,
+pentru a face impartirea echilibrat. In caz ca nu se imparte exact la numarul de workeri, ultimul
+worker din coordonatorul 0 va calcula si restul care a ramas. Astfel, eu voi trimite fiecarui
+coordonator vectorul pentru tot cluster-ul (chunk * numar_de_workeri) iar coordonatorul va imparti
+la randul sau vectorul pentru fiecare worker (chunk). Dupa ce workerii fac calculul, trimit inapoi
+coordonatorilor vectorul, iar acestia il trimit la randul lor inapoi catre coord 0 pentru a asambla
+la loc vectorul.
